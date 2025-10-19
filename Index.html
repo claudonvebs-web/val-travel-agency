@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VAL Travel Agency - Explorez le Nord de Madagascar</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --main-blue: #0b2545;
+      --main-white: #ffffff;
+      --muted: #6c757d;
+      --accent: #133b73;
+    }
+
+    body{
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: var(--main-blue);
+      margin:0;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      background:#fff;
+    }
+
+    /* NAV */
+    .navbar {
+      background-color: var(--main-blue);
+    }
+    .navbar-brand { color: var(--main-white) !important; font-weight:700; letter-spacing:.6px; }
+    .nav-link { color: rgba(255,255,255,.92) !important; }
+    .nav-link:hover { color: var(--main-white) !important; text-decoration:underline; }
+
+    /* HERO */
+    .hero{
+      min-height: 85vh;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Plage de Madagascar') center/cover no-repeat;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      position:relative;
+      color:var(--main-white);
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(11,37,69,0.45);
+    }
+    .hero-inner{ position:relative; z-index:2; max-width:980px; padding: 2rem; }
+    .hero h1{ font-size:2.6rem; font-weight:800; margin-bottom:.5rem; }
+    .hero p{ font-size:1.1rem; color:rgba(255,255,255,.95); margin-bottom:1rem; }
+
+    /* Buttons */
+    .btn-blue{
+      background: var(--main-blue);
+      color: var(--main-white);
+      border-radius:50px;
+      border: 2px solid transparent;
+      padding: .6rem 1.25rem;
+      font-weight:600;
+    }
+    .btn-blue:hover{ background: var(--accent); color: #fff; }
+
+    /* Sections */
+    section{ padding: 64px 0; }
+    .text-blue{ color: var(--main-blue); }
+    .muted{ color: var(--muted); }
+
+    /* Cards */
+    .card { border: none; border-radius:12px; overflow:hidden; transition: transform .25s ease, box-shadow .25s ease; }
+    .card img{ width:100%; height: 190px; object-fit: cover; display:block; }
+    .card .card-body{ padding: 1.05rem; }
+    .card:hover{ transform:translateY(-6px); box-shadow: 0 12px 30px rgba(11,37,69,0.08); }
+
+    /* Accordion overrides */
+    .accordion-button { color: var(--main-blue); font-weight:600; }
+    .accordion-button:not(.collapsed){ background: var(--main-blue); color: #fff; }
+    .accordion-body{ padding-top:1rem; padding-bottom:1rem; }
+
+    /* Reservation form */
+    .form-card { background: #fff; border-radius:12px; padding: 28px; box-shadow: 0 10px 25px rgba(11,37,69,0.06); }
+    .form-control:focus { border-color: var(--main-blue); box-shadow: 0 0 0 .15rem rgba(11,37,69,0.12); }
+
+    /* Footer */
+    footer{ background: var(--main-blue); color: #fff; padding:22px 0; }
+    footer a{ color: #fff; text-decoration:none; }
+    footer a:hover{ text-decoration:underline; }
+
+    /* Responsive tweaks */
+    @media (max-width:768px){
+      .hero h1{ font-size:1.8rem; }
+      .hero{ padding: 3rem 1rem; min-height:65vh; }
+      .card img{ height:150px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">VAL Travel Agency</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="#">Accueil</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#destinations">Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="#reservation">Réservation</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Explorez la beauté du Nord de Madagascar</h1>
+      <p>Voyages personnalisés — nature, plages, faune endémique et aventures sur mesure.</p>
+      <a href="#reservation" class="btn btn-outline-light btn-blue">Réserver maintenant</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="bg-white">
+    <div class="container text-center">
+      <h2 class="text-blue fw-bold">Notre Objectifs</h2>
+      <p class="muted lead mb-0">Chez VAL Travel Agency, notre objectif est d’offrir à chaque voyageur une expérience unique et sur mesure.
+Nous concevons des itinéraires personnalisés qui répondent précisément aux envies, aux besoins et au rythme de chacun.
+Notre mission est de transformer chaque séjour en un moment mémorable, alliant découverte, confort et authenticité.
+Parce que chaque voyage est différent, nous mettons un point d’honneur à écouter, conseiller et accompagner nos clients à chaque étape, afin que leur aventure soit parfaitement adaptée à leurs attentes.</p>
+    </div>
+  </section>
+
+  <!-- Destinations main -->
+  <section id="destinations" class="bg-light">
+    <div class="container">
+      <h2 class="text-center text-blue fw-bold mb-4">Destinations inoubliables</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card">
+            <img src="images/Nosy be.JPG" alt="Nosy Be">
+            <div class="card-body text-center">
+              <h4 class="text-blue fw-bold mb-1">Nosy Be</h4>
+              <p class="muted mb-0">Île paradisiaque connue pour ses plages, récifs et paysages volcaniques.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <img src="images/Diego.JPG" alt="Diego Suarez">
+            <div class="card-body text-center">
+              <h4 class="text-blue fw-bold mb-1">Diego Suarez (Antsiranana)</h4>
+              <p class="muted mb-0">Baies émeraude, tsingy, plages sauvages et parcs nationaux spectaculaires.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed sections with images (Unsplash links) -->
+  <section id="details" class="bg-white">
+    <div class="container">
+      <h2 class="text-center text-blue fw-bold mb-2">Explorez nos destinations en détail</h2>
+      <p class="text-center muted mb-4">Cliquez pour développer chaque destination et découvrir les sites incontournables.</p>
+
+      <div class="accordion" id="accordionDestinations">
+
+        <!-- NOSY BE -->
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="hNosyBe">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cNosyBe" aria-expanded="false" aria-controls="cNosyBe">
+               Nosy Be — Sites à visiter
+            </button>
+          </h2>
+          <div id="cNosyBe" class="accordion-collapse collapse" aria-labelledby="hNosyBe" data-bs-parent="#accordionDestinations">
+            <div class="accordion-body">
+              <div class="row g-4">
+
+                <!-- Nosy Iranja -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/iranja.JPG" alt="Nosy Iranja">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Nosy Iranja</h5>
+                      <p class="muted small mb-0">Île reliée par un banc de sable, sable blanc et eaux cristallines — idéal pour la photo et la détente.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Nosy Tanikely -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/tanikely.JPEG" alt="Nosy Tanikely">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Nosy Tanikely</h5>
+                      <p class="muted small mb-0">Réserve marine protégée, excellente pour snorkeling et observation de coraux et poissons tropicaux.</p>
+                    </div>
+                  </div>
+                </div>
+<!-- Nosy Sakatia -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/tor.JPEG" alt="Nosy Sakatia">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Nosy Sakatia</h5>
+                      <p class="muted small mb-0">Connue pour ses plages préservées, ses fonds marins riches en coraux et tourtues marines.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Parc Lokobe -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/lokobe.JPEG" alt="Parc Lokobe">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Parc National Lokobe</h5>
+                      <p class="muted small mb-0">Forêt tropicale protégée, lémuriens et biodiversité endémique — randonnées guidées.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mont Passot -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/mont passot.JPG" alt="Mont Passot">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Mont Passot</h5>
+                      <p class="muted small mb-0">Point de vue panoramique pour admirer les lacs et les couchers de soleil mémorables.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Nosy Komba -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/komba.JPG" alt="Nosy Komba">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Nosy Komba</h5>
+                      <p class="muted small mb-0">Petite île connue pour ses lémuriens, artisans locaux et sentiers côtiers.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tour de l'île (à la demande) -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/Ile.JPEG" alt="Tour de l'ile">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Tour de l'île</h5>
+                      <p class="muted small mb-0">Excursion autour de Nosy Be — plages, villages et découvertes locales (disponible à la demande).</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIEGO SUAREZ -->
+        <div class="accordion-item mb-3">
+          <h2 class="accordion-header" id="hDiego">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cDiego" aria-expanded="false" aria-controls="cDiego">
+               Diego Suarez — Sites à visiter
+            </button>
+          </h2>
+          <div id="cDiego" class="accordion-collapse collapse" aria-labelledby="hDiego" data-bs-parent="#accordionDestinations">
+            <div class="accordion-body">
+              <div class="row g-4">
+
+                <!-- Mer d'Émeraude -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/Emeraude.JPG" alt="Mer d'Emeraude">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Mer d'Émeraude</h5>
+                      <p class="muted small mb-0">Lagon turquoise, eau claire et sites parfaits pour baignade et snorkeling.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tsingy Rouge -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/tsingy.JPG" alt="Tsingy Rouge">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Tsingy Rouge</h5>
+                      <p class="muted small mb-0">Formations d’argile sculptées par l’érosion, paysages rouges saisissants.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trois Baies -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/baies.JPEG" alt="Trois Baies">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Trois Baies</h5>
+                      <p class="muted small mb-0">Randonnée côtière reliant trois plages sauvages et panoramas marins.</p>
+                    </div>
+                  </div>
+                </div>
+<!-- Nosy Hara -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/Nosy Hara.JPEG" alt="Nosy Hara">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Nosy Hara</h5>
+                      <p class="muted small mb-0">Un véritable paradis préservé, encore méconnu des voyageur.</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Parc National Ankarana -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/ankarana.JPEG" alt="Ankarana">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Parc National Ankarana</h5>
+                      <p class="muted small mb-0">Réseau de grottes, canyons et tsingy ; faune et spéléologie à découvrir.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Plage de Ramena -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/la-plage-de-ramena-est.JPG" alt="Ramena">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Plage de Ramena</h5>
+                      <p class="muted small mb-0">Plage tranquille, idéale pour baignade et détente après les excursions.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Montagne des Français -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/montagne.JPG" alt="Montagne des Francais">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Montagne des Français</h5>
+                      <p class="muted small mb-0">Randonnée et points de vue exceptionnels sur la baie d'Antsiranana.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Montagne d'Ambre -->
+                <div class="col-md-4">
+                  <div class="card">
+                    <img src="images/cascade-mnt-ambre.JPG" alt="Montagne d'Ambre">
+                    <div class="card-body text-center">
+                      <h5 class="text-blue fw-bold">Montagne d’Ambre</h5>
+                      <p class="muted small mb-0">Forêts humides, cascades et une faune tropicale remarquable.</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- accordion -->
+    </div>
+  </section>
+
+  <!-- RESERVATION -->
+  <section id="reservation" class="bg-light">
+    <div class="container">
+      <h2 class="text-center text-blue fw-bold mb-3">Réservation de Voyage</h2>
+      <p class="text-center muted mb-4">Remplissez ce formulaire — nous vous contacterons pour finaliser votre voyage personnalisé.</p>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+         <form action="https://formspree.io/f/mgvndben" method="POST" class="p-4 bg-light rounded shadow">
+          <input type="hidden" name="_next" value="https://tonsite.com/merci.html">
+
+  <div class="mb-3">
+    <label for="nom" class="form-label">Nom complet</label>
+    <input type="text" class="form-control" id="nom" name="nom" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Adresse email</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="destination" class="form-label">Destination souhaitée</label>
+    <select class="form-select" id="destination" name="destination" required>
+      <option value="">Choisissez une destination</option>
+      <option value="Nosy Be">Nosy Be</option>
+      <option value="Diego Suarez">Diego Suarez</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="date" class="form-label">Date du voyage</label>
+    <input type="date" class="form-control" id="date" name="date" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="personnes" class="form-label">Nombre de personnes</label>
+    <input type="number" class="form-control" id="personnes" name="personnes" min="1" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="message" class="form-label">Message ou demande spéciale</label>
+    <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+</form>
+
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container text-center">
+      <p class="mb-1">© 2025 VAL Travel Agency | Tous droits réservés.</p>
+      <p class="small mb-0">Contact: <a href="mailto:valtravelmada@gmail.com">valtravelmada@gmail.com</a></p>
+    </div>
+  </footer>
+<div id="google_translate_element" style="text-align:center; margin:20px;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'fr',
+        includedLanguages: 'fr,en,mg,es,it,de',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+      }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
