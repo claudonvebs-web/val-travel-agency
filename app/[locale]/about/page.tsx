@@ -1,0 +1,12 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import { SectionHeading, ValuesSection } from '@/components/Sections';
+import { getDictionary, Locale } from '@/lib/site-data';
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: Locale }> }): Promise<Metadata> { const { locale } = await params; const t = getDictionary(locale); return { title: `${t.about.title} | Val Island Tour`, description: t.about.subtitle }; }
+
+export default async function About({ params }: { params: Promise<{ locale: Locale }> }) {
+  const { locale } = await params; const t = getDictionary(locale);
+  const team = ['Val · Founder & travel designer', 'Mina · Guest relations', 'Jean · Driver-guide coordinator'];
+  return <><section className="section-padding bg-slate-50 pt-32 dark:bg-slate-900"><div className="luxury-container"><SectionHeading title={t.about.title} subtitle={t.about.subtitle}/><div className="grid gap-10 lg:grid-cols-2 lg:items-center"><div><p className="text-lg leading-9 text-slate-700 dark:text-slate-200">{t.about.presentation}</p><div className="mt-8 grid gap-4 sm:grid-cols-2"><div className="rounded-[2rem] bg-white p-6 shadow-luxury dark:bg-white/5"><h2 className="font-display text-2xl text-gold">Mission</h2><p className="mt-3">{t.about.mission}</p></div><div className="rounded-[2rem] bg-white p-6 shadow-luxury dark:bg-white/5"><h2 className="font-display text-2xl text-gold">Vision</h2><p className="mt-3">{t.about.vision}</p></div></div></div><div className="relative h-[32rem] overflow-hidden rounded-[2rem] shadow-luxury"><Image src="https://images.unsplash.com/photo-1522199710521-72d69614c702?auto=format&fit=crop&w=1300&q=80" alt="Val Island Tour team planning private Madagascar tours" fill className="object-cover"/></div></div></div></section><section className="section-padding bg-white dark:bg-slate-950"><div className="luxury-container"><SectionHeading title={t.about.teamTitle}/><div className="grid gap-6 md:grid-cols-3">{team.map((member) => <div key={member} className="rounded-[2rem] border border-slate-100 p-6 text-center shadow-luxury dark:border-white/10"><div className="mx-auto h-24 w-24 rounded-full bg-luxury-gradient"/><h3 className="mt-5 font-display text-2xl">{member}</h3><p className="mt-2 text-slate-500">French · English · Italian support</p></div>)}</div></div></section><ValuesSection title={t.about.valuesTitle}/></>;
+}
